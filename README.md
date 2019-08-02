@@ -10,6 +10,7 @@ Populate Graph
   * for each edge, take the two node LUIDs
     * for each node LUID - get the node object
       * If the node does not exist - create it
+      
 For each node object
 add the other node object to the list of connected nodes
 Calculate connected components
