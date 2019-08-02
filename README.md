@@ -11,9 +11,9 @@ Populate Graph
     * for each node LUID - get the node object
       * If the node does not exist - create it
       
-For each node object
-add the other node object to the list of connected nodes
-Calculate connected components
-pick a node at random and collect all the connected nodes
-make this list/set an equivalence class - store this somehow
-pick a node not in any of the equivalence classes and repeat.
+* For each node object
+* add the other node object to the list of connected nodes
+* Calculate connected components
+* pick a node at random and collect all the connected nodes
+* make this list/set an equivalence class - store this somehow
+* pick a node not in any of the equivalence classes and repeat.
