@@ -1,23 +1,12 @@
-from py_nf_graph_processor_source.code.nodes import convert_luid_to_node
-from py_nf_graph_processor_source.code.nodes import Nodes
-from py_nf_graph_processor_source.code.graphviz_processor import generate_graph
+from py_nf_graph_processor_code.graph_processing_service.nodes import convert_luid_to_node
+from py_nf_graph_processor_code.graph_processing_service.nodes import Nodes
+from py_nf_graph_processor_code.graph_processing_service.graph_processor import generate_graph
 from collections import namedtuple
-
 
 """1. Populate Graph"""
 """a. read the data store to get a list of the edges (To be upgraded to link to ODBC datasources)"""
 
-def process_edge_list():
-    sameAsList = \
-       [
-            [1001, 1002],
-            [1002, 1001],
-            [1003, 1004],
-            [1005, 1006],
-            [1006, 1007],
-            [1010, 1009],
-            [1010, 1008]
-        ]
+def process_edge_list(sameAsList):
 
     Edge = \
         namedtuple(
@@ -41,12 +30,16 @@ def process_edge_list():
         """" ii. and iii for each node check the Node registry for the node object and if it doesn't exist create it
         and add the other node to the node's connected node lit"""
 
-        convert_luid_to_node(edge.lefthandside).addnodes(edge.righthandside)
-        convert_luid_to_node(edge.righthandside).addnodes(edge.lefthandside)
+        convert_luid_to_node(
+            edge.lefthandside).\
+                    add_nodes(
+                        edge.righthandside)
 
-    generate_graph(Nodes)
+        convert_luid_to_node(
+            edge.righthandside).\
+                add_nodes(edge.lefthandside)
+
+    return (Nodes)
+
 
 """Render in a graph output object pdf"""
-
-process_edge_list()
-

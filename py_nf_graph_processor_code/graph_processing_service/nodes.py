@@ -8,10 +8,9 @@ class Nodes(object):
         self._registry.update({self.node_luid: self})  # node property for adding the node to the Node class registry
         self.connected_nodes = set()  # node property for storing the set of connected node objects
 
-    def addnodes(self, node_luid_for_appending):  # adds a node and node luid to the nodes connected nodes list
+    def add_nodes(self, node_luid_for_appending):  # adds a node and node luid to the nodes connected nodes list
         node_for_appending = convert_luid_to_node(node_luid_for_appending)  # retreive node using luid
-        self.connected_nodes.add(node_for_appending)  # add node to connected node set
-
+        self.connected_nodes.add(node_for_appending)
 
 
 def convert_luid_to_node(node_luid_for_appending):
